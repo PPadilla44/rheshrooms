@@ -1,26 +1,175 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #fff7e8;
+  --cream-deep: #f6e6c6;
+  --toadstool: #e2513c;
+  --toadstool-dark: #b73a28;
+  --moss: #5fa05a;
+  --moss-dark: #3f7a3b;
+  --sky: #a9d8f5;
+  --sky-deep: #6fb7e6;
+  --wood: #8a5a3b;
+  --wood-dark: #5e3a24;
+  --ink: #3b2a20;
+  --ink-soft: #6b5446;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-toadstool: var(--toadstool);
+  --color-toadstool-dark: var(--toadstool-dark);
+  --color-moss: var(--moss);
+  --color-moss-dark: var(--moss-dark);
+  --color-sky: var(--sky);
+  --color-wood: var(--wood);
+  --color-wood-dark: var(--wood-dark);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --font-display: var(--font-fredoka);
+  --font-sans: var(--font-nunito);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--sky);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  font-family: var(--font-nunito), system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%, #ffffff66 0 8%, transparent 9%),
+    radial-gradient(circle at 75% 6%, #ffffff55 0 6%, transparent 7%),
+    linear-gradient(180deg, var(--sky) 0%, #cdeaf9 45%, #bfe3a8 100%);
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-fredoka), system-ui, sans-serif;
+}
+
+/* Chunky 2000s virtual-world panel */
+.panel {
+  background: var(--cream);
+  border: 4px solid var(--wood-dark);
+  border-radius: 22px;
+  box-shadow:
+    0 6px 0 var(--wood-dark),
+    0 14px 24px #3b2a2033;
+  position: relative;
+}
+
+.panel-inner {
+  border: 2px dashed #c9a97e;
+  border-radius: 14px;
+}
+
+/* Glossy pill button */
+.btn-glossy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-fredoka), system-ui, sans-serif;
+  font-weight: 600;
+  color: #fff;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 3px solid var(--toadstool-dark);
+  background: linear-gradient(180deg, #ff8a73 0%, var(--toadstool) 55%, var(--toadstool-dark) 100%);
+  box-shadow:
+    inset 0 2px 0 #ffffff88,
+    0 3px 0 var(--toadstool-dark);
+  text-shadow: 0 1px 0 #00000033;
+  transition: transform 120ms ease;
+}
+
+.btn-glossy:hover {
+  transform: translateY(-1px);
+}
+
+.btn-glossy:active {
+  transform: translateY(2px);
+  box-shadow: inset 0 2px 0 #ffffff88;
+}
+
+.btn-moss {
+  border-color: var(--moss-dark);
+  background: linear-gradient(180deg, #8fd08a 0%, var(--moss) 55%, var(--moss-dark) 100%);
+  box-shadow:
+    inset 0 2px 0 #ffffff88,
+    0 3px 0 var(--moss-dark);
+}
+
+.btn-wood {
+  border-color: var(--wood-dark);
+  background: linear-gradient(180deg, #b98460 0%, var(--wood) 55%, var(--wood-dark) 100%);
+  box-shadow:
+    inset 0 2px 0 #ffffff66,
+    0 3px 0 var(--wood-dark);
+}
+
+:focus-visible {
+  outline: 3px solid #1d6fd8;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Guide speech bubble */
+.bubble {
+  background: #fff;
+  border: 3px solid var(--wood-dark);
+  border-radius: 18px;
+  position: relative;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: -14px;
+  bottom: 14px;
+  border-width: 8px 14px 8px 0;
+  border-style: solid;
+  border-color: transparent var(--wood-dark) transparent transparent;
+}
+
+/* Map buildings */
+.building {
+  transition: transform 180ms ease;
+  transform-origin: 50% 100%;
+}
+
+.building:hover,
+.building:focus-visible {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .building,
+  .btn-glossy {
+    transition: none;
+  }
+  .building:hover,
+  .building:focus-visible {
+    transform: none;
+  }
+}
+
+/* Quick view prints as a clean one-pager */
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-plain {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
 }
