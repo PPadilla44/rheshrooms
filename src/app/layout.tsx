@@ -1,23 +1,9 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import "@fontsource-variable/fredoka";
+import "@fontsource-variable/nunito";
 import TopBar from "@/components/TopBar";
 import { profile } from "@/content/resume";
 import "./globals.css";
-
-// Self-hosted variable fonts (Fredoka for headings, Nunito for body)
-const fredoka = localFont({
-  src: "../fonts/fredoka.woff2",
-  variable: "--font-fredoka",
-  weight: "300 700",
-  display: "swap",
-});
-
-const nunito = localFont({
-  src: "../fonts/nunito.woff2",
-  variable: "--font-nunito",
-  weight: "200 1000",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rheshrooms.com"),
@@ -37,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${fredoka.variable} ${nunito.variable} antialiased`}>
+    <html lang="en" className="antialiased">
       <body className="min-h-dvh flex flex-col">
         <a
           href="#main"

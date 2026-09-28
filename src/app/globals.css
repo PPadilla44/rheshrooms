@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --font-fredoka: "Fredoka Variable";
+  --font-nunito: "Nunito Variable";
   --cream: #fff7e8;
   --cream-deep: #f6e6c6;
   --toadstool: #e2513c;

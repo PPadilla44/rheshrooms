@@ -26,4 +26,4 @@ npm install
 npm run dev
 ```
 
-Fonts (Fredoka, Nunito) are self-hosted from `src/fonts`. Deployed on Vercel.
+Fonts (Fredoka, Nunito) are self-hosted via Fontsource packages. Deployed on Vercel.
