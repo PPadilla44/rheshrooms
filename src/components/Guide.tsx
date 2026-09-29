@@ -36,8 +36,8 @@ function Chanty({ className }: { className?: string }) {
 export default function Guide({ text }: { text: string }) {
   return (
     <div className="flex items-end gap-4">
-      <Chanty className="h-20 w-16 sm:h-24 sm:w-20 shrink-0" />
-      <p className="bubble px-4 py-3 text-sm sm:text-base">
+      <Chanty className="bob h-20 w-16 sm:h-24 sm:w-20 shrink-0" />
+      <p key={text} className="bubble pop-in px-4 py-3 text-sm sm:text-base">
         <span className="font-display font-semibold text-toadstool-dark">{guideName}: </span>
         {text}
       </p>

@@ -16,7 +16,7 @@ export default function TownSquare() {
         </p>
       </section>
 
-      <Guide text="Hi there! I'm Chanty. Tap any mushroom house to look around, or hit Quick view if you just need Rhe's resume." />
+      <Guide text="Hi there! I'm Chanty. Tap any mushroom house to look around, or hit Quick view if you just need Rhe's resume. Psst: 7 little mushrooms are hiding around the village. Can you find them all?" />
 
       <VillageMap buildings={buildings} />
 

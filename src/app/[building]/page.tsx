@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import BuildingContent from "@/components/BuildingContent";
 import Guide from "@/components/Guide";
+import HiddenShroom from "@/components/HiddenShroom";
 import Shroom from "@/components/Shroom";
 import { buildings, getBuilding } from "@/content/buildings";
 
@@ -42,6 +43,7 @@ export default async function BuildingPage({ params }: PageProps<"/[building]">)
           </header>
           <BuildingContent slug={b.slug} />
         </div>
+        <HiddenShroom spot={b.slug} cap={b.cap} className={b.hideAt} />
       </article>
 
       <nav aria-label="Next and previous buildings" className="flex flex-wrap justify-between gap-3">

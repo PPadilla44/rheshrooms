@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "@fontsource-variable/fredoka";
 import "@fontsource-variable/nunito";
+import Loader from "@/components/Loader";
 import TopBar from "@/components/TopBar";
+import VillageStatus from "@/components/VillageStatus";
 import { profile } from "@/content/resume";
 import "./globals.css";
 
@@ -31,7 +33,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <Loader />
         <TopBar />
+        <VillageStatus />
         <main id="main" className="flex-1 w-full max-w-5xl mx-auto px-4 pb-10">
           {children}
         </main>
